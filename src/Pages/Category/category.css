@@ -1,0 +1,14 @@
+.title {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.title::after {
+  content: "";
+  border-top: 1px solid #9e9a9a;
+  width: 150px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+}
