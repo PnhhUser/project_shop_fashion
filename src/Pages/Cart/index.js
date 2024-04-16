@@ -1,5 +1,5 @@
 import FeatherIcon from "feather-icons-react";
-import { useCart } from "../../Context/ProductContext";
+import { useCart } from "../../Context/productContext";
 import "./cart.css";
 
 const removeSameWithId = (arr) => {

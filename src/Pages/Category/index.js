@@ -1,5 +1,5 @@
 import { Link, NavLink, useParams } from "react-router-dom";
-import { useProduct } from "../../Context/ProductContext";
+import { useProduct } from "../../Context/productContext";
 import "./category.css";
 import FeatherIcon from "feather-icons-react";
 

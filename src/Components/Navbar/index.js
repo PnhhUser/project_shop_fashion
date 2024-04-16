@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import FeatherIcon from "feather-icons-react";
-import { useCart } from "../../Context/ProductContext";
+import { useCart } from "../../Context/productContext";
 
 const removeSameWithId = (arr) => {
   return arr.reduce((accumulator, current) => {

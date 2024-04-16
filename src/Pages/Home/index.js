@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import BannerHome from "../../Components/Banner";
-import { useProduct } from "../../Context/ProductContext";
+import { useProduct } from "../../Context/productContext";
 import FeatherIcon from "feather-icons-react";
 
 const brands = [

@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useCart, useProduct } from "../../Context/ProductContext";
+import { useCart, useProduct } from "../../Context/productContext";
 import FeatherIcon from "feather-icons-react";
 import { useEffect, useRef, useState } from "react";
 const MAX_QUANTITY = 99;
