@@ -1,16 +1,14 @@
 import { Outlet } from "react-router-dom";
 import Header from "../Header";
-import Footer from "../Footer/Index";
-import { ProductProvider } from "../../Context/productContext";
+import { ProductProvider } from "../../Context/ProductContext";
 
 export default function Layout() {
   return (
     <>
-      <Header />
       <ProductProvider>
+        <Header />
         <Outlet />
       </ProductProvider>
-      <Footer />
     </>
   );
 }

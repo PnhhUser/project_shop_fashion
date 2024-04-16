@@ -12,3 +12,25 @@
   right: 0;
   transform: translate(0, -50%);
 }
+.btn-quantity::-webkit-outer-spin-button,
+.btn-quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.btn-quantity {
+  border: 1px solid #a1a1a1;
+  outline: 0;
+  width: 35px;
+  height: 35px;
+  padding: 2px;
+  text-align: center;
+  color: #242323;
+}
+.btn-decrease:active,
+.btn-increase:active {
+  transform: scale(0.9);
+}
+.btn-decrease:hover,
+.btn-increase:hover {
+  color: black;
+}

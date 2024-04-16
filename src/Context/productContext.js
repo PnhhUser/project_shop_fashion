@@ -1,19 +1,18 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useState, useReducer } from "react";
 
 const ProductContext = createContext(null);
 
-const ProductDispatchContext = createContext(null);
+const CartContext = createContext(null);
 
 export const ProductProvider = ({ children }) => {
-  const [listProduct, dispatch] = useReducer(productReducer, {
-    products: initProducts,
-  });
+  const [products, setProduct] = useState(initProducts);
+  const [carts, dispatch] = useReducer(cartReducer, []);
 
   return (
-    <ProductContext.Provider value={{ listProduct }}>
-      <ProductDispatchContext.Provider value={{ dispatch }}>
+    <ProductContext.Provider value={{ products, setProduct }}>
+      <CartContext.Provider value={{ carts, dispatch }}>
         {children}
-      </ProductDispatchContext.Provider>
+      </CartContext.Provider>
     </ProductContext.Provider>
   );
 };
@@ -22,13 +21,32 @@ export function useProduct() {
   return useContext(ProductContext);
 }
 
-export function useProductDispatch() {
-  return useContext(ProductDispatchContext);
+export function useCart() {
+  return useContext(CartContext);
 }
 
-const productReducer = function (listProduct, action) {
-  console.log(listProduct, action);
-};
+function cartReducer(carts, action) {
+  switch (action.type) {
+    case "ADD_CART": {
+      return [
+        ...carts,
+        {
+          productId: action.productId,
+          quantity: action.quantity,
+          imgUrl: action.imgUrl,
+          productName: action.productName,
+          price: action.price,
+        },
+      ];
+    }
+    case "REMOVE_PRODUCT": {
+      return carts.filter((t) => t.productId !== action.productId);
+    }
+    default: {
+      return null;
+    }
+  }
+}
 
 const initProducts = [
   {

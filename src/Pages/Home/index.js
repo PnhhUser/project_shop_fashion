@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import BannerHome from "../../Components/Banner";
-import { useProduct } from "../../Context/productContext";
+import { useProduct } from "../../Context/ProductContext";
+import FeatherIcon from "feather-icons-react";
 
 const brands = [
   {
@@ -72,12 +73,13 @@ const SessionCategory = function () {
 };
 
 const SessionProduct = function () {
-  const { listProduct } = useProduct();
-  const products = listProduct.products.map((product) => {
+  const { products } = useProduct();
+
+  const listProducts = products.map((product) => {
     return (
       <Link
         to={`/category/${product.category}/${product.id}`}
-        className="card w-96"
+        className="card w-96 opacity-75 hover:opacity-100 transition-opacity"
         key={product.id}
       >
         <div className="content">
@@ -85,9 +87,10 @@ const SessionProduct = function () {
         </div>
         <div className="footer flex items-center flex-col gap-2 pt-2">
           <p className="font-mono text-2xl"> {product.name} </p>
-          <p className="text-slate-500 text-lg font-mono">
-            ${product.price} USD
-          </p>
+          <div className="text-slate-500 text-lg font-mono">
+            <FeatherIcon icon="dollar-sign" className="inline-block" />
+            <p className="inline-block align-middle">{product.price} USD</p>
+          </div>
         </div>
       </Link>
     );
@@ -97,7 +100,7 @@ const SessionProduct = function () {
       <div className="text-center text-4xl font-thin mb-14">
         Featured Products
       </div>
-      <div className="flex gap-6 flex-wrap justify-center">{products}</div>
+      <div className="flex gap-6 flex-wrap justify-center">{listProducts}</div>
     </div>
   );
 };

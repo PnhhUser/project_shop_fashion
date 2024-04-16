@@ -1,12 +1,13 @@
 import { Link, NavLink, useParams } from "react-router-dom";
-import { useProduct } from "../../Context/productContext";
+import { useProduct } from "../../Context/ProductContext";
 import "./category.css";
+import FeatherIcon from "feather-icons-react";
 
 export default function CategoryPage() {
-  const { listProduct } = useProduct();
+  const { products } = useProduct();
   const param = useParams();
 
-  const listToByCategories = listProduct.products
+  const listToByCategories = products
     .filter((product) => product.category === param.categoryname)
     .map((product) => {
       return (
@@ -20,9 +21,10 @@ export default function CategoryPage() {
           </div>
           <div className="footer flex items-center flex-col gap-2 pt-2">
             <p className="font-mono text-2xl"> {product.name} </p>
-            <p className="text-slate-500 text-lg font-mono">
-              ${product.price} USD
-            </p>
+            <div className="text-slate-500 text-lg font-mono">
+              <FeatherIcon icon="dollar-sign" className="inline-block" />
+              <p className="inline-block align-middle">{product.price} USD</p>
+            </div>
           </div>
         </Link>
       );
