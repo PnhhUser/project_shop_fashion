@@ -17,7 +17,7 @@ export default function BannerHome() {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <div className="mb-2.5 text-center text-4xl">
+        <div className="mb-2.5 text-center text-4xl max-sm:w-96">
           Perfect eCommerce Webflow
           <br />
           Template to Get Started

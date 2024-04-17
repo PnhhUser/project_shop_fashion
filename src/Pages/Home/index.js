@@ -49,7 +49,7 @@ export default function HomePage() {
 
 const SessionCategory = function () {
   return (
-    <div className="flex gap-10 mt-10">
+    <div className="flex gap-10 mt-10 flex-wrap">
       <Link
         to={"category/accessories"}
         className="bg-stone-900 flex-1 text-white flex justify-end items-end text-3xl pb-2 pr-2 h-24"
